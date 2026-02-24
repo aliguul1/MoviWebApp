@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add New Movie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="container">
+        <h1>Add Movie to Favorites</h1>
+        <p>Enter the title of a movie. We will fetch the details from OMDb automatically.</p>
 
+        <form method="POST" class="main-form">
+            <div class="form-group">
+                <label for="title">Movie Title:</label>
+                <input type="text" id="title" name="title" placeholder="e.g. Inception" required autofocus>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-save">Search & Add</button>
+                <a href="{{ url_for('user_movies', user_id=user_id) }}" class="btn-cancel">Cancel</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

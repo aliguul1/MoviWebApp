@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <h1>User Directory</h1>
+    <ul class="user-list">
+        {% for user in users %}
+            <li><a href="{{ url_for('user_movies', user_id=user.id) }}" class="btn">{{ user.name }}</a></li>
+        {% else %}
+            <p>No users yet. Be the first to join!</p>
+        {% endfor %}
+    </ul>
+    <hr>
+    <section class="create-user">
+        <h3>Create New User</h3>
+        <form action="{{ url_for('create_user') }}" method="POST">
+            <input type="text" name="name" placeholder="User Name" required>
+            <button type="submit" class="btn">Add User</button>
+        </form>
+    </section>
+{% endblock %}

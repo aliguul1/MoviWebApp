@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}500 - Server Error{% endblock %}
+
+{% block content %}
+<div class="error-container" style="text-align: center; padding: 50px 0;">
+    <h1 style="font-size: 4rem; color: #e50914;">500</h1>
+    <h2>System Glitch</h2>
+    <p>Our projectors hit a snag. We are working to get the show back on the road.</p>
+    <div style="margin-top: 30px;">
+        <a href="{{ url_for('index') }}" class="btn-secondary">Try Refreshing Home</a>
+    </div>
+</div>
+{% endblock %}
